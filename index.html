@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mahin ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg,#ff6a88,#ff99ac);
+  color: white;
+}
+
+.section {
+  padding: 30px 15px;
+}
+
+img {
+  width: 85%;
+  max-width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+h1 { font-size: 36px; margin-bottom: 10px; }
+#typeText { font-size: 20px; min-height: 60px; }
+
+button {
+  padding: 12px 22px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+#yesBtn { background: white; color:#ff4d6d; }
+#noBtn {
+  background: black;
+  color: white;
+  position: relative;
+}
+
+.result {
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  to { transform: translateY(-100vh); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="yourmusic.mp3" type="audio/mpeg">
+</audio>
+
+<div class="section">
+  <h1>Mahin ❤️</h1>
+  <div id="typeText"></div>
+</div>
+
+<div class="section">
+  <!-- put your image file name here -->
+  <img src="love.jpg">
+</div>
+
+<div class="section">
+  <h2>Will you be mine forever? 💍</h2>
+  <button id="yesBtn" onclick="yes()">YES 💖</button>
+  <button id="noBtn" onmouseover="run()">NO 😜</button>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+/* typewriter text */
+const msg = "From the day you came into my life, everything became more beautiful. You are my happiness, my peace, my forever.";
+let i = 0;
+function typing(){
+  if(i < msg.length){
+    document.getElementById("typeText").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(typing, 40);
+  }
+}
+typing();
+
+/* yes button */
+function yes(){
+  document.getElementById("result").innerHTML =
+  "I love you Mahin — forever & always ❤️";
+}
+
+/* no button runs */
+function run(){
+  const b = document.getElementById("noBtn");
+  b.style.position = "absolute";
+  b.style.left = Math.random()*window.innerWidth + "px";
+  b.style.top = Math.random()*window.innerHeight + "px";
+}
+
+/* floating hearts */
+function heart(){
+  const h = document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,400);
+</script>
+
+</body>
+</html>
